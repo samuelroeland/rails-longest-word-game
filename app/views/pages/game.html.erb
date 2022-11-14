@@ -1,0 +1,13 @@
+<h1>Game Page</h1>
+<div class="letters">
+  <% @grid.each do |element| %>
+    <p><%= element %></p>
+<% end %>
+</div>
+
+<form action="/answer" method="post" data-turbo="false">
+  <input type="text" name="answer" placeholder="Enter your answer">
+  <input id="token" name="grid" type="hidden" value="<%=@grid%>" />
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input type="submit">
+</form>
